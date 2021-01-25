@@ -1,0 +1,40 @@
+var a = "translateX";
+var b = "rotate";
+var c = "transform";
+var x = `@-webkit-keyframes myOrbit {
+    from { -webkit-${c}: ${b}(0deg) ${a}(200px) ${b}(0deg); }
+    to   { -webkit-${c}: ${b}(360deg) ${a}(200px) ${b}(-360deg); }
+}
+
+@-moz-keyframes myOrbit {
+    from { -moz-${c}: ${b}(0deg) ${a}(200px) ${b}(0deg); }
+    to   { -moz-${c}: ${b}(360deg) ${a}(200px) ${b}(-360deg); }
+}
+
+@-o-keyframes myOrbit {
+    from { -o-${c}: ${b}(0deg) ${a}(200px) ${b}(0deg); }
+    to   { -o-${c}: ${b}(360deg) ${a}(200px) ${b}(-360deg); }
+}
+
+@keyframes myOrbit {
+    from { ${c}: ${b}(0deg) ${a}(200px) ${b}(0deg); }
+    to   { ${c}: ${b}(360deg) ${a}(200px) ${b}(-360deg); }
+}
+
+#trophy {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 500px;
+	left: 1000px;
+
+	-webkit-animation: myOrbit 3s linear infinite;
+	-moz-animation: myOrbit 3s linear infinite;
+	-o-animation: myOrbit 3s linear infinite;
+	animation: myOrbit 3s linear infinite;
+}`;
+
+var style = document.createElement('style');
+style.type = 'text/css';
+style.innerHTML = x;
+document.getElementsByTagName('head')[0].appendChild(style);
